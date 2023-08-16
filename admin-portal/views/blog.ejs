@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs</title>
+    <link rel="stylesheet" href="/css/viewBlogs.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("adminNavbar"); -%>
+      <div class="main">
+        <div class="blog-main-body">
+          <h1>Blogs</h1>
+          <div class="blog">
+            <img src="<%= blogs.picture_url %>" alt="Blog Picture" />
+            <h2><%= blogs.blog_title %></h2>
+            <p><%= blogs.blog_description%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

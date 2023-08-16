@@ -1,0 +1,116 @@
+const express = require("express");
+const RequesPlayers = require("../models/requestPlayers");
+const Player = require("../models/players");
+const Team = require("../models/teams");
+const router = express.Router();
+
+router.get("/requestedPlayers/:player_id", async (req, res) => {
+  const player_id = req.params.player_id;
+  try {
+    RequesPlayers.aggregate(
+      [
+        {
+          $lookup: {
+            from: "players",
+            localField: "requestToPlayer",
+            foreignField: "player_id",
+            as: "players",
+          },
+        },
+        {
+          $match: { requestToPlayer: player_id },
+        },
+        {
+          $unwind: "$players",
+        },
+        { $project: { teamId: { $toObjectId: "$players.team_id" } } },
+      ],
+      (err, data) => {
+        if (!err) {
+          console.log("Data: " + data);
+        } else {
+          console.log("Error: " + err);
+        }
+      }
+    );
+
+    // RequesPlayers.aggregate(
+    //   [
+    //     {
+    //       $lookup: {
+    //         from: "players",
+    //         localField: "requestToPlayer",
+    //         foreignField: "player_id",
+    //         as: "output",
+    //       },
+    //     },
+    //     {
+    //       $match: { requestToPlayer: player_id },
+    //     },
+    //   ],
+    //   (err, team) => {
+    //     if (!err) {
+    //       res.status(200).send({ message: "Success", teamData: team });
+    //     } else {
+    //       res.status(404).send({ message: "Team not Found" });
+    //     }
+    //   }
+    // );
+
+    // RequesPlayers.find({ requestToPlayer: player_id }, (err, request) => {
+    //   if (!err && request.length > 0) {
+    //     // console.log(request[0].team_id);
+    //     Team.find({ _id: request[0].team_id }, (err, team) => {
+    //       if (!err) {
+    //         res.status(200).send({ message: "Success", teamData: team });
+    //       } else {
+    //         res.status(404).send({ message: "Team not Found" });
+    //       }
+    //     });
+    //   } else {
+    //     res.status(400).send({ message: "Player Not Found" });
+    //   }
+    // });
+  } catch (error) {
+    res.status(500).send({ message: "Error" + error });
+  }
+});
+router.post("/requestedPlayers", (req, res) => {
+  const { requestToPlayer, requestFromPlayer, teamID } = req.body;
+  const requestPlayer = RequesPlayers({
+    requestFromPlayer: requestFromPlayer,
+    requestToPlayer: requestToPlayer,
+    team_id: teamID,
+  });
+  RequesPlayers.create(requestPlayer, (err) => {
+    if (!err) {
+      res.status(200).send({ message: "Request Sent" });
+    } else {
+      res.status(404).send({ message: "Bad Request" });
+    }
+  });
+});
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+db.slots.aggregate([
+  { $addFields: { slotId: { $toString: "$_id" } } },
+  {
+  $lookup:
+  {
+    from: "bookings",
+    localField: "slotId",
+    foreignField: "slot_id",
+    as: "data"
+  }
+}
+])

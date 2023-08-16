@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Blogs</title>
+    <link rel="stylesheet" href="/css/viewBlogs.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("adminNavbar"); -%>
+      <div class="main">
+        <h1 style="text-align: center; color: #3f5069">Blogs</h1>
+        <div class="blog-main-body">
+          <% blogs.forEach(function(item){ %>
+          <div class="blog">
+            <div class="blog-content">
+              <h2><%= item.blog_title %></h2>
+              <span
+                ><%= item.blog_description.substring(0, 100) + "..." %></span
+              >
+              <span
+                ><a class="blog-link" href="/blogs/<%= item._id %>"
+                  >Read More</a
+                ></span
+              >
+            </div>
+            <div class="blog-image-wrapper">
+              <img class="blog-image" src="<%= item.image %>" />
+              <div class="blog-image-overlay">
+                <img class="blog-image" src="<%= item.image %>" />
+              </div>
+            </div>
+          </div>
+
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approval</title>
+    <link rel="stylesheet" href="/css/adminApprovalAccounts.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("adminNavbar"); -%>
+      <div class="main">
+        <div class="main-body">
+          <h1 style="text-align: center; color: #3f5069">Approvals</h1>
+          <div class="ground-section">
+            <% if(groundOwnerapprovals.length > 0) { %>
+            <h2>Ground Onwers</h2>
+            <% }%> <% groundOwnerapprovals.forEach((item) => { %>
+            <div class="section">
+              <div class="data">
+                <form
+                  class="groundOwners-form"
+                  action="adminGroundApprovalAccounts"
+                  method="post"
+                >
+                  <div class="name-category">
+                    <label for="full_name">Name</label
+                    ><input
+                      type="text"
+                      name="full_name"
+                      id="full_name"
+                      value=" <%= item.full_name.toUpperCase()%>"
+                      readonly
+                    />
+                  </div>
+                  <div class="email-address-category">
+                    <label for="email_address">Email Address</label
+                    ><input
+                      type="email"
+                      name="email_address"
+                      id="email_address"
+                      value=" <%= item.email_address%>"
+                      readonly
+                    />
+                  </div>
+
+                  <div class="gender-and-number-category">
+                    <label for="contact_number">Contact Number</label
+                    ><input
+                      type="text"
+                      name="contact_number"
+                      id="contact_number"
+                      value=" <%= item.contact_number%>"
+                      readonly
+                    />
+                  </div>
+
+                  <div class="general-category">
+                    <label for="ground_name">Ground Name</label
+                    ><input
+                      type="text"
+                      name="ground_name"
+                      id="ground_name"
+                      value=" <%= item.ground_name.toUpperCase() %>"
+                      readonly
+                    />
+                    <label for="location">Location</label
+                    ><input
+                      type="text"
+                      name="location"
+                      id="location"
+                      value=" <%= item.location.toUpperCase() %>"
+                      readonly
+                    />
+                  </div>
+                  <div class="buttons-category">
+                    <input type="submit" name="button" value="Approve" />
+                    <input type="submit" name="button" value="Reject" />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+
+          <div class="trainer-section">
+            <% if(trainerApprovals.length > 0) { %>
+            <h2>Trainer</h2>
+            <% }%> <% trainerApprovals.forEach((item) => { %>
+            <div class="section">
+              <div class="data">
+                <form
+                  class="trainers-form"
+                  action="adminTrainerApprovalAccounts"
+                  method="post"
+                >
+                  <div class="name-category">
+                    <label for="full_name">Name</label
+                    ><input
+                      type="text"
+                      name="full_name"
+                      id="full_name"
+                      value=" <%= item.full_name.toUpperCase()%>"
+                      readonly
+                    />
+                  </div>
+                  <div class="email-address-category">
+                    <label for="email_address">Email Address</label
+                    ><input
+                      type="email"
+                      name="email_address"
+                      id="email_address"
+                      value="<%=item.email_address%>"
+                      readonly
+                    />
+                  </div>
+                  <div class="gender-and-number-category">
+                    <label for="gender">Gender</label
+                    ><input
+                      type="text"
+                      name="gender"
+                      id="gender"
+                      value="<%= item.gender.toUpperCase()%>"
+                      readonly
+                    />
+                    <label for="contact_number">Contact Number</label
+                    ><input
+                      type="text"
+                      name="contact_number"
+                      id="contact_number"
+                      value=" <%= item.contact_number%>"
+                      readonly
+                    />
+                  </div>
+                  <div class="general-category">
+                    <label for="date_of_birth">Date of Birth</label
+                    ><input
+                      type="text"
+                      name="date_of_birth"
+                      id="date_of_birth"
+                      value=" <%= item.date_of_birth %>"
+                      readonly
+                    />
+                    <label for="coach_category">Profession Category</label
+                    ><input
+                      type="text"
+                      name="profession_category"
+                      id="profession_category"
+                      value=" <%= item.profession_category %>"
+                      readonly
+                    />
+                  </div>
+                  <div class="buttons-category">
+                    <input type="submit" name="button" value="Approve" />
+                    <input type="submit" name="button" value="Reject" />
+                  </div>
+                </form>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<%- include("scripts"); -%>

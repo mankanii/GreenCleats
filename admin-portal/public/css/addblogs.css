@@ -1,0 +1,64 @@
+body {
+  background-color: #97dece !important;
+}
+
+.h1 {
+  text-align: center;
+}
+
+.main-body {
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.card {
+  margin-right: 23%;
+  background-color: #3f5069;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  padding: 3%;
+  width: 50%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+label {
+  width: 20%;
+  color: #fff;
+}
+
+input[type="text"],
+textarea,
+select {
+  border: none;
+  width: 100%;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.form-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+input[type="submit"] {
+  border: none;
+  width: 40%;
+  padding: 3% 0%;
+  background-color: bisque;
+  border-radius: 15px;
+}

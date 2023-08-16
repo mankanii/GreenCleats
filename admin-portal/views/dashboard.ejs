@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+  </head>
+  <body>
+    <%- include("navbar"); -%>
+    <section class="section-1">
+      <div class="stats">
+        <h2>Number of users</h2>
+        <h2><%= user_num %></h2>
+      </div>
+      <div class="events">
+        <h2>Grounds</h2>
+        <h2><%= ground_num %></h2>
+      </div>
+    </section>
+  </body>
+</html>

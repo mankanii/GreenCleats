@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registered Football Players</title>
+    <link rel="stylesheet" href="/css/players.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("adminNavbar"); -%>
+      <div class="main">
+        <h1 style="color: #3f5069">Registered Football Players</h1>
+        <div class="card-container">
+          <% for(var i=0; i<players.length; i++) { %>
+            <div class="card">
+              <h2><%= players[i].name %></h2>
+              <p><strong>Gender:</strong> <%= players[i].gender %></p>
+              <p><strong>Age:</strong> <%= players[i].age %></p>
+              <p><strong>Position:</strong> <%= players[i].position %></p>
+              <p><strong>Number:</strong> <%= players[i].number %></p>
+            </div>
+        <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

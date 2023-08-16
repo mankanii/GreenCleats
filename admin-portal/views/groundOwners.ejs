@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registered Ground Owners</title>
+    <link rel="stylesheet" href="/css/players.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("adminNavbar"); -%>
+      <div class="main">
+        <h1 style="color: #3f5069">Registered Ground Owners</h1>
+        <div class="card-container">
+          <% for(var i=0; i<groundOwners.length; i++) { %>
+            <div class="card">
+              <h2><%= groundOwners[i].name %></h2>
+              <p><strong>Ground Name:</strong> <%= groundOwners[i].ground_name %></p>
+              <p><strong>Type:</strong> <%= groundOwners[i].type %></p>
+              <p><strong>Email:</strong> <%= groundOwners[i].email %></p>
+              <p><strong>Phone Number:</strong> <%= groundOwners[i].contact_number %></p>
+              <p><strong>Location:</strong> <%= groundOwners[i].location %></p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

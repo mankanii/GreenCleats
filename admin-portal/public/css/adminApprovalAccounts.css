@@ -1,0 +1,57 @@
+.ground-section,
+.trainer-section {
+  margin: 1%;
+}
+.groundOwners-form,
+.trainers-form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 1%;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0.5%;
+}
+.groundOwners-form label,
+.trainers-form label {
+  width: 180px;
+}
+.groundOwners-form input,
+.trainers-form input {
+  border: none;
+  width: max-content;
+  height: 10%;
+  padding: 0.5%;
+  outline: none;
+  font-weight: bold;
+}
+
+input[type="submit"]:nth-child(1) {
+  background-color: green;
+  color: white;
+}
+input[type="submit"]:nth-child(2) {
+  background-color: red;
+  color: white;
+  margin-left: 1%;
+}
+input[type="email"] {
+  color: red;
+}
+input[type="submit"] {
+  padding: 1.2% 3%;
+  border-radius: 15px;
+}
+
+.name-category,
+.email-address-category,
+.gender-and-number-category,
+.general-category {
+  display: flex;
+  align-items: center;
+}
+
+.buttons-category {
+  display: flex;
+  justify-content: flex-end;
+}

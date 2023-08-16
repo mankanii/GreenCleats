@@ -1,0 +1,23 @@
+{
+  "name": "admin-portal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cloudinary": "^1.33.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "formidable": "^2.1.1",
+    "mongoose": "^6.10.5",
+    "nodemailer": "^6.8.0",
+    "path": "^0.12.7"
+  }
+}

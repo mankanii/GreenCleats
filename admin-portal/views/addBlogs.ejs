@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Blogs</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/addBlogs.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("adminNavbar"); -%>
+      <div class="main">
+        <h1 style="color: #3f5069" class="h1">Add Blogs</h1>
+        <div class="main-body">
+          <div class="card">
+            <form action="/addBlogs" method="post">
+              <div class="form-div">
+                <label for="blog-image">Image</label>
+                <input
+                  type="file"
+                  name="picture"
+                  id="blog_image_file"
+                  accept="image/*"
+                />
+                <input type="hidden" name="base64code" id="base64code_image" />
+              </div>
+              <div class="form-div">
+                <label for="category">Category</label>
+                <select name="category" id="">
+                  <option value="international">International</option>
+                  <option value="karachi">Karachi</option>
+                </select>
+              </div>
+              <div class="form-div">
+                <label for="blog-author">Author</label>
+                <input
+                  type="text"
+                  name="blog_author"
+                  id="blog_author"
+                  placeholder="Author"
+                />
+              </div>
+              <div class="form-div">
+                <label for="blog-title">Title</label>
+                <input
+                  type="text"
+                  name="blog_title"
+                  id="blog_title"
+                  placeholder="Title"
+                />
+              </div>
+
+              <div class="form-div">
+                <label for="blog-description">Description</label>
+                <textarea
+                  name="blog_description"
+                  id="blog_description"
+                  cols="30"
+                  rows="10"
+                  placeholder="Description"
+                ></textarea>
+              </div>
+              <div class="button"><input type="submit" value="Post" /></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const input = document.getElementById("blog_image_file");
+    const hidden_tag = document.getElementById("base64code_image");
+    const convertBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+
+        fileReader.onload = () => {
+          resolve(fileReader.result);
+        };
+
+        fileReader.onerror = (error) => {
+          reject(error);
+        };
+      });
+    };
+
+    input.onchange = async () => {
+      const selectedFile = input.files[0];
+      const base64Image = await convertBase64(selectedFile);
+      hidden_tag.setAttribute("value", base64Image);
+    };
+  </script>
+</html>

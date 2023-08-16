@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registered Trainers</title>
+    <link rel="stylesheet" href="/css/players.css" />
+    <link rel="stylesheet" href="/css/adminDashboard.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%- include("adminNavbar"); -%>
+      <div class="main">
+        <h1 style="color: #3f5069">Registered Trainers</h1>
+        <div class="card-container">
+          <% for(var i=0; i<trainers.length; i++) { %>
+            <div class="card">
+              <h2><%= trainers[i].name %></h2>
+              <p><strong>Type:</strong> <%= trainers[i].type %></p>
+              <p><strong>Age:</strong> <%= trainers[i].age %></p>
+              <p><strong>Gender:</strong> <%= trainers[i].gender %></p>
+              <p><strong>Email:</strong> <%= trainers[i].email %></p>
+              <p><strong>Phone Number:</strong> <%= trainers[i].number %></p>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

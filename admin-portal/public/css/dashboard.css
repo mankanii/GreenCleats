@@ -1,0 +1,35 @@
+/* Dashboard */
+body {
+  background: linear-gradient(
+    to right,
+    rgb(116, 236, 253) 0%,
+    rgb(96, 231, 258) 30%,
+    rgb(144, 234, 231) 30%,
+    rgb(81, 239, 256) 100%
+  );
+}
+.section-1 {
+  display: flex;
+  margin-top: 1em;
+  justify-content: space-evenly;
+}
+
+.stats,
+.events {
+  display: flex;
+  justify-content: space-around;
+  height: 50vh;
+  border: 5px solid #ffff;
+  flex-wrap: wrap;
+}
+
+.stats {
+  background-color: rgb(133, 217, 151);
+  flex-basis: 30vw;
+}
+.events {
+  background-color: rgb(231, 164, 231);
+  flex-basis: 50vw;
+}
+
+/* Dashboard */
